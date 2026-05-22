@@ -74,7 +74,7 @@ sudo apt-get install -f   # fix dependencies if needed
 Clone the repository and install dependencies manually:
 
 ```bash
-git clone https://github.com/shampuan/mediaoptimus.git
+git clone https://github.com/shampuan/media-optimus.git
 cd mediaoptimus
 pip install PyQt6
 sudo apt install ffmpeg
