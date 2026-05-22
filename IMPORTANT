@@ -1,0 +1,12 @@
+The application is currently in beta, and language support will be added in future versions.
+
+For distributions other than Debian, try downloading the source folder (mediaoptimus) and installing the dependencies to run it directly.
+
+If you don't encounter any problems, package it for your distribution.
+
+The source consists of 4 files in a folder:
+mediaoptimus.py is the main program.
+
+converter_panel and results_panel are helper modules for the main program.
+
+png is the program icon.
