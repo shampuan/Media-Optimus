@@ -37,7 +37,11 @@ It is not a simple converter. It is a **detective and a converter in one**:
 
 ## Screenshots
 
-*(screenshots go here)*
+<img width="960" height="684" alt="Ekran görüntüsü_2026-05-22_10-36-58" src="https://github.com/user-attachments/assets/f8d8b2aa-c2b6-4e33-9d47-4c933459cdfc" />
+
+<img width="960" height="684" alt="Ekran görüntüsü_2026-05-22_10-41-45" src="https://github.com/user-attachments/assets/ef2acdea-ba54-47b7-88d2-c0688cdfdc48" />
+
+<img width="960" height="684" alt="Ekran görüntüsü_2026-05-22_10-53-19" src="https://github.com/user-attachments/assets/0143fc61-aed4-4dc4-9df8-05571f546b28" />
 
 ---
 
