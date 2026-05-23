@@ -9,6 +9,9 @@ dependencies = [
     "PyQt6"
 ]
 
+[tool.hatch.build.targets.wheel]
+packages = ["mediaoptimus"]
+
 [project.scripts]
 media-optimus = "mediaoptimus.mediaoptimus:main"
 
