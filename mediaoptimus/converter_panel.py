@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
                              QFrame, QProgressBar, QSizePolicy)
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer
 from PyQt6.QtGui import QColor
-from results_panel import ResultsPanel
+from mediaoptimus.results_panel import ResultsPanel
 
 
 # ─────────────────────────────────────────────────────────────────────────────
