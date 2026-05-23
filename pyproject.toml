@@ -1,0 +1,17 @@
+[project]
+name = "media-optimus"
+version = "1.0.1"
+description = "Video archive optimizer"
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    "PyQt6"
+]
+
+[project.scripts]
+media-optimus = "media_optimus.mediaoptimus:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
