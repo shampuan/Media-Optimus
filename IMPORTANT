@@ -2,6 +2,8 @@ The application is currently in beta, and language support will be added in futu
 
 For distributions other than Debian, try downloading the source folder (mediaoptimus) and installing the dependencies to run it directly.
 
+First install ffmpeg and the pyqt-6.
+
 If you don't encounter any problems, package it for your distribution.
 
 The source consists of 4 files in a folder:
