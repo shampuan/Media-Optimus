@@ -10,7 +10,7 @@ dependencies = [
 ]
 
 [project.scripts]
-media-optimus = "media_optimus.mediaoptimus:main"
+media-optimus = "mediaoptimus.mediaoptimus:main"
 
 [build-system]
 requires = ["hatchling"]
