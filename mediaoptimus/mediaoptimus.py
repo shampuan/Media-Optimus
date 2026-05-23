@@ -12,8 +12,8 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
                              QDialogButtonBox)
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer, QUrl
 from PyQt6.QtGui import QColor, QPalette, QDesktopServices
-from converter_panel import ConverterPanel
-from results_panel import ResultsPanel
+from mediaoptimus.converter_panel import ConverterPanel
+from mediaoptimus.results_panel import ResultsPanel
 
 # Wayland ve modern masaüstü ortamları için uyumluluk ayarları
 if "GNOME" in os.environ.get("XDG_CURRENT_DESKTOP", ""):
