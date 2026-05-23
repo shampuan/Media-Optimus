@@ -92,9 +92,9 @@ class ConvertWorker(QThread):
             w, h = job['resolution'].split('x')
             cmd += ['-vf', f'scale={w}:{h}']
 
-        # Ses — AVI için yeniden kodla, diğerleri kopyala
+        # Ses — uyumsuz container'lar için yeniden kodla
         ext_in = os.path.splitext(job['src'])[1].lower()
-        if ext_in == '.avi':
+        if ext_in in ('.avi', '.wmv', '.mpg', '.mpeg', '.ogv', '.ts'):
             cmd += ['-c:a', 'aac', '-b:a', '128k']
         else:
             cmd += ['-c:a', 'copy']

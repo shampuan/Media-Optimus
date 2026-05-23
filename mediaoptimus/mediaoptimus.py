@@ -35,7 +35,7 @@ class ScanWorker(QThread):
         self.min_mb_limit   = min_mb_limit
 
     def run(self):
-        video_exts = ('.mp4', '.mkv', '.avi', '.mov', '.flv', '.webm', '.mpg')
+        video_exts = ('.mp4', '.mkv', '.avi', '.mov', '.flv', '.webm', '.mpg', '.mpeg', '.wmv', '.ogv', '.ts')
         files = [f for f in os.listdir(self.path) if f.lower().endswith(video_exts)]
         total = len(files)
         rows  = []
@@ -339,7 +339,7 @@ class BigFileDetector(QMainWindow):
 
         info = QLabel(
             "<table cellspacing='6'>"
-            "<tr><td><b>Version:</b></td><td>1.0.0 </td></tr>"
+            "<tr><td><b>Version:</b></td><td>1.0.1 </td></tr>"
             "<tr><td><b>License:</b></td><td>GNU GPLv1</td></tr>"
             "<tr><td><b>GUI/UX:</b></td><td>Qt-6</td></tr>"
             "<tr><td><b>Developer:</b></td><td>A. Serhat KILIÇOĞLU (shampuan)</td></tr>"
@@ -695,6 +695,7 @@ class BigFileDetector(QMainWindow):
             self.stack.removeWidget(self.converter)
             self.converter.deleteLater()
             self.converter = None
+        QTimer.singleShot(50, self._fit_table_columns)
 
     def _on_conversion_done(self, results):
         # Kuyruğu temizle

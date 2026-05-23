@@ -52,22 +52,31 @@ class ResultsPanel(QWidget):
         ])
 
         hdr = self.table.horizontalHeader()
-        hdr.setSectionResizeMode(self.COL_SRC_NAME, QHeaderView.ResizeMode.Stretch)
-        hdr.setSectionResizeMode(self.COL_DST_NAME, QHeaderView.ResizeMode.Stretch)
-        hdr.setSectionResizeMode(self.COL_NOTE, QHeaderView.ResizeMode.Stretch)
-        fixed = {
-            1: 100, 2: 80, 3: 70, 4: 60,
-            6: 80,  7: 80, 8: 80, 9: 200
-        }
-        for col, w in fixed.items():
-            hdr.setSectionResizeMode(col, QHeaderView.ResizeMode.Fixed)
-            self.table.setColumnWidth(col, w)
+        hdr.setSectionResizeMode(QHeaderView.ResizeMode.Interactive)
+        hdr.setMinimumSectionSize(20)
+        hdr.setStretchLastSection(False)
+
+        self.table.setColumnWidth(self.COL_SRC_NAME,  200)
+        self.table.setColumnWidth(self.COL_SRC_RES,   100)
+        self.table.setColumnWidth(self.COL_SRC_SIZE,   80)
+        self.table.setColumnWidth(self.COL_SRC_CODEC,  70)
+        self.table.setColumnWidth(self.COL_SRC_KBPS,   60)
+        self.table.setColumnWidth(self.COL_DST_NAME,  200)
+        self.table.setColumnWidth(self.COL_DST_SIZE,   80)
+        self.table.setColumnWidth(self.COL_DST_CODEC,  80)
+        self.table.setColumnWidth(self.COL_SAVING,     80)
+        self.table.setColumnWidth(self.COL_NOTE,      150)
+
+        hdr.sectionDoubleClicked.connect(
+            lambda col: self.table.resizeColumnToContents(col))
 
         self.table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
         self.table.setSelectionBehavior(QTableWidget.SelectionBehavior.SelectRows)
         self.table.setAlternatingRowColors(True)
 
         self._populate()
+        self.table.horizontalHeader().sectionResized.connect(
+            lambda: None)  # resize sinyali aktif
         return self.table
 
     def _populate(self):
@@ -142,6 +151,19 @@ class ResultsPanel(QWidget):
 
     # ── Özet satırı ──────────────────────────────────────────────────────
 
+    def resizeEvent(self, event):
+        super().resizeEvent(event)
+        self._fit_table_columns()
+
+    def _fit_table_columns(self):
+        total_w  = self.table.viewport().width()
+        other_w  = sum(self.table.columnWidth(c)
+                       for c in range(self.table.columnCount())
+                       if c not in (self.COL_SRC_NAME, self.COL_DST_NAME))
+        remaining = max(80, total_w - other_w)
+        self.table.setColumnWidth(self.COL_SRC_NAME, int(remaining * 0.4))
+        self.table.setColumnWidth(self.COL_DST_NAME, int(remaining * 0.6))
+    
     def _build_summary(self):
         frame = QFrame()
         lay   = QHBoxLayout(frame)
