@@ -785,9 +785,18 @@ class BigFileDetector(QMainWindow):
 
     
 
-if __name__ == "__main__":
+def main():
+
     app = QApplication(sys.argv)
+
     app.setStyle("Fusion")
+
     win = BigFileDetector()
+
     win.show()
+
     sys.exit(app.exec())
+
+
+if __name__ == "__main__":
+    main()
